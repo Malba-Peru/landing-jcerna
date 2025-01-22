@@ -1,0 +1,64 @@
+---
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+interface Props {
+    title?: string;
+    description?: string;
+    keywords?: string;
+    googleTag?: boolean;
+}
+const {
+    title = "Services – Jcerna | Contratistas generales",
+    description = "Expertos en construcciones de casas de playa, casas campo edificios.. obras civiles en general...",
+} = Astro.props;
+
+---
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{title}</title>
+</head>
+<body>
+
+<div class="general-wrapper">
+    <Header />
+
+    <Footer/>
+</div>
+<style is:global lang="scss">
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans Georgian Variable", sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .general-wrapper {
+    max-width: 1530px;
+    margin: auto;
+    position: relative;
+    background-color: var(--color-tertiary);
+  }
+
+  .main {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+</style>
+</body>
+</html>

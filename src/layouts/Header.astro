@@ -1,0 +1,145 @@
+---
+import { IconFontAwesome } from "../components";
+import Drawer from "./Drawer";
+
+const isHomePage = Astro.url.pathname === "/";
+---
+
+<header id="header-item" class="header-general">
+    <div class="header-wrapper">
+        <div class="menu-bar">
+            <div class="img-logo">
+                <a href="/" rel="noopener noreferrer">
+                    <h1 style="display: none">Soluciones tecnologicas</h1>
+                    <img
+                            loading="lazy"
+                            src="/logo.webp"
+                            alt="Logo malba"
+
+                    />
+                </a>
+            </div>
+
+            <div class="item-menu">
+                <ul>
+                    <li><a href={isHomePage ? "#" : "/#"} rel="inicio">Inicio</a></li>
+                    <li>
+                        <a href={isHomePage ? "#services" : "/#services"} rel="servicios"
+                        >Servicios</a
+                        >
+                    </li>
+                    <li>
+                        <a href={isHomePage ? "#about-us" : "/#about-us"} rel="nosotros"
+                        >Nosotros</a
+                        >
+                    </li>
+                    <li><a href="/contact" rel="contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="item-menu-button">
+                <Drawer client:visible>
+                    <IconFontAwesome
+                            aria-label="barramenu"
+                            width="30px"
+                            path="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+                    />
+                </Drawer>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style lang="scss">
+  //MOBILE AND TABLET
+  .header-general {
+    width: 100%;
+    height: auto;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+
+    .header-wrapper {
+      width: 100%;
+    }
+
+    .menu-bar {
+      padding: 0.5em 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .img-logo {
+        img {
+          max-width: 200px;
+          max-height: 90px;
+          object-fit: contain;
+        }
+      }
+
+      .item-menu-button {
+        background: #fff;
+        color: #000;
+      }
+    }
+
+    .item-menu {
+      display: none;
+    }
+  }
+
+  //DESKTOP
+  @media (min-width: 920px) {
+    .header-general {
+      position: relative;
+      background: white;
+      top: 0;
+      z-index: 700;
+      width: 100%;
+      max-width: 1530px;
+      margin: auto;
+      .item-menu-button {
+        display: none;
+      }
+
+      .menu-bar {
+        padding: 0 2em;
+        width: 100%;
+        display: flex;
+        background: #fff;
+        justify-content: space-between;
+        .img-logo {
+          img {
+            padding: 0.5em 0;
+            object-fit: contain;
+          }
+        }
+
+        .item-menu {
+          display: grid;
+          gap: 1em;
+          font-size: 1.2em;
+          font-weight: 500;
+
+          ul {
+            list-style: none;
+            padding: 0 2em;
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            > li {
+              padding: 0 1em;
+            }
+
+            li a {
+              text-decoration: none;
+              color: #0174B7;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
