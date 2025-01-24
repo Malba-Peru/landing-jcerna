@@ -10,11 +10,11 @@ const isHomePage = Astro.url.pathname === "/";
         <div class="menu-bar">
             <div class="img-logo">
                 <a href="/" rel="noopener noreferrer">
-                    <h1 style="display: none">Soluciones tecnologicas</h1>
+                    <h1 style="display: none">Contratistas Generales</h1>
                     <img
                             loading="lazy"
                             src="/logo.webp"
-                            alt="Logo malba"
+                            alt="Logo JCerna"
 
                     />
                 </a>
@@ -103,15 +103,14 @@ const isHomePage = Astro.url.pathname === "/";
       }
 
       .menu-bar {
-        padding: 0 2em;
+        padding: 1em 2em;
         width: 100%;
         display: flex;
         background: #fff;
         justify-content: space-between;
         .img-logo {
           img {
-            padding: 0.5em 0;
-            object-fit: contain;
+            width: 100%;
           }
         }
 

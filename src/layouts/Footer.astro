@@ -9,7 +9,7 @@ const isHomePage = Astro.url.pathname === "/";
             <img
                     loading="lazy"
                     src="/logo.webp"
-                    alt="Logo malba"
+                    alt="Logo JCerna"
 
             />
             <p>
@@ -105,9 +105,9 @@ const isHomePage = Astro.url.pathname === "/";
 </footer>
 
 <style lang="scss">
+
   .footer {
     display: flex;
-    align-items: center;
     flex-direction: column;
     background: #0174B7;
 
@@ -122,6 +122,7 @@ const isHomePage = Astro.url.pathname === "/";
       display: grid;
       justify-items: center;
 
+
       grid-template-columns: repeat(3, 1fr);
 
 
@@ -131,9 +132,7 @@ const isHomePage = Astro.url.pathname === "/";
         color: white;
       }
 
-      > div {
-        flex: 1 1 20em;
-      }
+
 
       &__information {
         font-size: 1.2em;
@@ -148,7 +147,8 @@ const isHomePage = Astro.url.pathname === "/";
         img {
           border-radius: 0.5em;
           background: white;
-          width: 200px;
+          width: 100%;
+
           max-height: 120px;
         }
 
@@ -188,6 +188,7 @@ const isHomePage = Astro.url.pathname === "/";
           flex-direction: column;
           gap: 1.5em;
           font-size: 1.1em;
+
         }
       }
 
@@ -228,15 +229,13 @@ const isHomePage = Astro.url.pathname === "/";
 
 
 
-  @media (min-width: 992px) {
+  @media (max-width: 992px) {
     .footer {
       .footer-top {
-        > div {
-          flex: none;
-          p {
-            font-size: 0.9em;
-          }
-        }
+       display: flex;
+        flex-wrap: wrap;
+        gap: 2.5em;
+
       }
     }
   }
