@@ -1,0 +1,81 @@
+---
+import Counter from "../ui/Counter.jsx";
+---
+
+<section id="path">
+    <div class="path-container">
+        <div class="years">
+            <Counter client:load target={10} />
+            <p>Años en el Negocio</p>
+        </div>
+        <div class="client">
+            <Counter client:load target={1500} />
+            <p>Clientes Satisfechos</p>
+        </div>
+        <div class="proyects">
+            <Counter client:load  target={50} />
+            <p>Proyectos Completados</p>
+        </div>
+        <div class="personal">
+            <Counter client:load  target={20} />
+            <p>Personal Capacitado</p>
+        </div>
+    </div>
+</section>
+
+<style>
+
+    section {
+        padding: 2em;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .path-container {
+            background: #0174B7;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3em;
+            padding: 2em;
+            border-radius: 20px;
+            justify-content: center;
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1em;
+                width: 100%;
+                text-align: center;
+
+                h1 {
+                    font-size: 4em;
+                    color: white;
+                }
+                p {
+                    font-size: 1.5em;
+                    color: white;
+
+                }
+            }
+        }
+    }
+
+
+    @media (min-width: 600px) {
+        .path-container div {
+            width: 45%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .path-container {
+            flex-wrap: nowrap;
+            gap: 7em;
+        }
+
+        .path-container div {
+            width: auto;
+        }
+    }
+
+
+</style>

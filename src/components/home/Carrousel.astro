@@ -1,0 +1,93 @@
+---
+import Icon from "astro-icon";
+const { slides = [] } = Astro.props;
+---
+
+<script>
+    import "swiper/css";
+    import Swiper from "swiper";
+    import { register } from "swiper/element/bundle";
+    register();
+
+    new Swiper("#mySwiper", {
+        autoplay: true,
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+
+<!-- Swiper -->
+<div class="swiper" id="mySwiper">
+<div class="swiper-wrapper">
+{
+    slides.map((slide, index) => (
+        <div key={index} class="swiper-slide">
+    <img src={slide.src} alt={slide.alt}/>
+        </div>
+        ))
+        }
+    </div>
+    <div class="swiper-button-prev">
+    <Icon
+        class="icon"
+        pack="ic"
+        name="twotone-keyboard-arrow-left"
+        size={49}
+/>
+</div>
+<div class="swiper-button-next">
+<Icon
+class="icon"
+pack="ic"
+name="twotone-keyboard-arrow-right"
+size={49}
+/>
+</div>
+</div>
+
+<style>
+.swiper {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    .swiper-slide {
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+    cursor: pointer;
+    position: absolute;
+    color: #d0d0d3;
+    z-index: 300;
+    top: 50%;
+    font-size: 2em;
+    }
+    .swiper-button-prev {
+    left: 3%;
+    }
+    .swiper-button-next {
+    right: 3%;
+    }
+    @media (max-width: 480px) {
+    .swiper {
+    height: 40vh;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+    font-size: 1.2em;
+    left: 8%;
+    right: 8%;
+    }
+    }
+    }
+    }
+</style>

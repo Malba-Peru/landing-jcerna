@@ -1,0 +1,208 @@
+---
+import Icon from "astro-icon";
+import { services } from "../../data-list";
+import Divider from "../ui/Divider.astro";
+---
+
+<section id="services">
+    <h2>Nuestros Servicios</h2>
+    <div class="services-container">
+        <article >
+            <div class="services-icon">
+                <Icon
+                        class="icon"
+                        pack="mdi"
+                        name="construction"
+                        size={60}
+                        color="white"
+                />
+            </div>
+
+            <div class="services-divider">
+                <Divider />
+
+            </div>
+            <div>
+                <h3>Construcción</h3>
+                <p>{services.construction.paragraph}</p>
+                <ul>
+                    {
+                        services.construction.list.map((item) => (
+                                <li>
+                                    <Icon
+                                            class="icon"
+                                            pack="mdi"
+                                            name="check"
+                                            size={19}
+                                    />
+                                    {item}
+                                </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </article>
+
+        <article >
+            <div class="services-icon">
+                <Icon
+                        class="icon"
+                        pack="ic"
+                        name="sharp-construction"
+                        size={60}
+                        color="white"
+                />
+            </div>
+
+            <div class="services-divider">
+                <Divider />
+
+            </div>
+            <div>
+                <h3>Acabados</h3>
+                <p>{services.finishes.paragraph}</p>
+                <ul>
+                    {
+                        services.finishes.list.map((item) => (
+                                <li>
+                                    <Icon
+                                            class="icon"
+                                            pack="mdi"
+                                            name="check"
+                                            size={19}
+                                    />
+                                    {item}
+                                </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </article>
+
+        <article >
+            <div class="services-icon">
+                <Icon
+                        class="icon"
+                        pack="healthicons"
+                        name="medical-advice"
+                        size={60}
+                        color="white"
+                />
+            </div>
+
+            <div class="services-divider">
+                <Divider />
+
+            </div>
+            <div>
+                <h3>Asesorias</h3>
+                <p>{services.advice.paragraph}</p>
+                <ul>
+                    {
+                        services.advice.list.map((item) => (
+                                <li>
+                                    <Icon
+                                            class="icon"
+                                            pack="mdi"
+                                            name="check"
+                                            size={19}
+                                    />
+                                    {item}
+                                </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </article>
+    </div>
+</section>
+
+<style>
+    section {
+        background: #0d77c1;
+        width: 100%;
+        padding: 1.5em 1em;
+        height: auto;
+        margin: 2em 0;
+
+        h2 {
+            color: white;
+            font-size: 3em;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding-bottom: 0.3em;
+        }
+
+        .services-container {
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2em;
+            article {
+                padding: 1em;
+                border-radius: 1em;
+                background: white;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                .services-divider {
+                    width: 100%;
+                }
+
+                .services-icon{
+                    background: #0d77c1;
+                    padding: 0.5em;
+                    border-radius: 50%;
+
+                }
+
+                div:last-child {
+                    padding: 1em;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5em;
+
+                    h3 {
+                        font-size: 1.5em;
+                        color: #0d77c1;
+                        text-align: center;
+                        margin-bottom: 0.5em;
+                    }
+
+                    ul {
+                        list-style: none;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5em;
+                        li {
+                            display: flex;
+                            gap: 0.5em;
+                            align-items: flex-start;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .services-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+        }
+
+    }
+
+</style>

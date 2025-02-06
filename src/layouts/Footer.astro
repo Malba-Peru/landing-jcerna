@@ -60,7 +60,9 @@ const isHomePage = Astro.url.pathname === "/";
                     >Nosotros</a
                     >
                 </li>
+                <li><a href="/gallery" rel="contacto">Galeria</a></li>
                 <li><a href="/contact" rel="contacto">Contacto</a></li>
+
             </ul>
         </div>
         <div class="footer-top__contacts">
@@ -121,6 +123,7 @@ const isHomePage = Astro.url.pathname === "/";
       width: 100%;
       display: grid;
       justify-items: center;
+      align-items: center;
 
 
       grid-template-columns: repeat(3, 1fr);
@@ -137,7 +140,6 @@ const isHomePage = Astro.url.pathname === "/";
       &__information {
         font-size: 1.2em;
         color: white;
-        padding: 0.8em;
         max-width: 23rem;
         display: flex;
         align-items: center;

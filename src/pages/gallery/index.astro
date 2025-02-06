@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import GalleryModal from "../../components/ui/GalleryModal";
+
+const images = [
+    { src: "/images/gallery_1.webp", alt: "Equipo trabajando en un proyecto" },
+    { src: "/images/gallery_2.webp", alt: "Reunión de equipo" },
+    { src: "/images/gallery_3.webp", alt: "Presentación de proyecto" },
+    { src: "/images/gallery_4.webp", alt: "Celebración de equipo" },
+    { src: "/images/gallery_5.webp", alt: "Trabajo en oficina" },
+    { src: "/images/gallery_6.webp", alt: "Reunión creativa" },
+    { src: "/images/gallery_7.webp", alt: "Equipo colaborando" },
+    { src: "/images/gallery_8.webp", alt: "Planificación de proyecto" },
+    { src: "/images/gallery_9.webp", alt: "Desarrollo de ideas" },
+    { src: "/images/gallery_10.webp", alt: "Equipo celebrando éxito" },
+    { src: "/images/gallery_11.webp", alt: "Reunión de brainstorming" },
+    { src: "/images/gallery_12.webp", alt: "Presentación final" },
+];
+---
+
+<BaseLayout>
+    <section class="gallery">
+        <h1>Galería</h1>
+        <GalleryModal images={images} client:load/>
+    </section>
+</BaseLayout>
+
+<style>
+    .gallery {
+        background: #014670;
+        padding: 2em;
+
+        h1 {
+            text-align: center;
+            color: white;
+            padding-bottom: 1em;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2em;
+            margin: auto;
+
+            img {
+                width: 100%;
+                border-radius: 5px;
+                border: 3px solid gray;
+            }
+        }
+    }
+
+    @media (max-width: 800px) {
+        .gallery {
+            .container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+</style>

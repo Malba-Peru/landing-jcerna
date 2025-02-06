@@ -14,8 +14,6 @@ const {
 
 ---
 
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -30,8 +28,12 @@ const {
 
 <div class="general-wrapper">
     <Header />
+    <div class="main">
 
-    <Footer/>
+    <slot />
+
+    </div>
+    <Footer />
 </div>
 <style is:global lang="scss">
   * {
