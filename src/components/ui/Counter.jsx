@@ -44,7 +44,7 @@ const Counter = ({ target }) => {
     return () => clearInterval(counter);
   }, [isVisible, target]);
 
-  return <h1 ref={ref}>{count.toLocaleString()}+</h1>;
+  return <h1 ref={ref}>+ {count.toLocaleString()}</h1>;
 };
 
 export default Counter;
