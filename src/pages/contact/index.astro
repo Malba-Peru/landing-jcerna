@@ -1,3 +1,91 @@
 ---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactForm from "../../components/contact/ContactForm.jsx";
 
 ---
+
+<BaseLayout>
+    <section>
+        <div class="error-message-wrapper" id="error-message-wrapper"></div>
+        <div class="wrapper-contact">
+            <div class="contact-ubication">
+                <h1>UBICACIÓN</h1>
+                <iframe
+                        src="https://www.google.com/maps?q=Av+Miramar,+Chilca+15871&output=embed"
+                        width="100%"
+                        height="300"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy">
+                </iframe>
+            </div>
+            <div class="contact-form">
+                <ContactForm client:load/>
+
+            </div>
+        </div>
+    </section>
+</BaseLayout>
+
+<style lang="scss">
+  section {
+    @media (max-width: 576px) {
+      padding: 0 1.5em;
+
+      .error-message-wrapper {
+        width: 60%;
+        margin: auto;
+        @media (max-width: 970px) {
+          width: 100%;
+        }
+      }
+    }
+
+    .wrapper-contact {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1em;
+      position: relative;
+
+      @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+        position: relative;
+      }
+
+      .contact-ubication {
+        text-align: center;
+        color: #0174B7;
+        padding: 2em;
+
+        h1{
+          padding: 0.5em;
+        }
+
+        iframe {
+          width: 100%;
+          height: 300px;
+          border-radius: 8px;
+        }
+      }
+
+   
+    }
+  }
+
+  @media (max-width: 576px) {
+    .wrapper-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .contact-ubication, .contact-form {
+        width: 100%;
+      }
+    }
+  }
+
+  .disabled {
+    pointer-events: none;
+    background: gray;
+  }
+</style>

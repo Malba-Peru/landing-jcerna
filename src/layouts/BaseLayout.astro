@@ -1,6 +1,8 @@
 ---
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
+import {ButtonFloatingWhatsapp} from "../components";
+
 interface Props {
     title?: string;
     description?: string;
@@ -20,7 +22,6 @@ const {
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{title}</title>
 </head>
@@ -29,12 +30,12 @@ const {
 <div class="general-wrapper">
     <Header />
     <div class="main">
-
     <slot />
-
     </div>
+    <ButtonFloatingWhatsapp/>
     <Footer />
 </div>
+
 <style is:global lang="scss">
   * {
     margin: 0;

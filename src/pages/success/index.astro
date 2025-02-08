@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+    <section class="success-page">
+        <header class="success-header">
+            <img
+                    src="/images/success.webp"
+            alt="Logo de la Constructora"
+            class="logo"
+            />
+        </header>
+
+        <main class="success-content">
+            <h1>¡Mensaje Enviado con Éxito!</h1>
+            <p>
+                Gracias por contactarnos. Hemos recibido tu mensaje y pronto nos
+                pondremos en contacto contigo.
+            </p>
+            <a href="/" class="back-button">Volver a la Página Principal</a>
+        </main>
+
+        <footer class="success-footer">
+            <p>© 2025 Jcerna | Contratistas generales. Todos los derechos reservados.</p>
+        </footer>
+    </section>
+</BaseLayout>
+
+<style>
+    .success-page {
+        width: 50%;
+        margin: 1em auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        justify-content: center;
+        background: linear-gradient(to right, rgba(57, 142, 205, 0.85), rgba(101, 179, 229, 0.85)),
+        url("/images/success-bg.webp");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+
+
+    .success-header .logo {
+        width: 250px;
+        margin-bottom: 20px;
+    }
+
+
+    .success-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+
+    .success-content p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: #f0f0f0;
+    }
+
+    .back-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #0174b7;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+        background-color: #005f8a;
+    }
+
+    .success-footer {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #ddd;
+        font-weight: bold;
+    }
+</style>
