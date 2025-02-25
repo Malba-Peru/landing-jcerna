@@ -60,7 +60,8 @@ const isHomePage = Astro.url.pathname === "/";
                     >Nosotros</a
                     >
                 </li>
-                <li><a href="/gallery" rel="contacto">Galeria</a></li>
+                <li><a href="/proyects" rel="proyectos">Proyectos</a></li>
+                <li><a href="/gallery" rel="galeria">Galeria</a></li>
                 <li><a href="/contact" rel="contacto">Contacto</a></li>
 
             </ul>
@@ -234,10 +235,17 @@ const isHomePage = Astro.url.pathname === "/";
   @media (max-width: 992px) {
     .footer {
       .footer-top {
-       display: flex;
+        display: flex;
         flex-wrap: wrap;
         gap: 2.5em;
 
+        &__information {
+          img {
+            max-width: 80%;
+            height: auto;
+            max-height: 100px;
+          }
+        }
       }
     }
   }

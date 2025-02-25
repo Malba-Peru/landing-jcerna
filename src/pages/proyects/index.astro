@@ -1,15 +1,37 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import VideoCarousel from "../../components/ui/VideoCarousel";
 
+const videos = [
+    { videoUrl: "/videos/construccion.mp4", poster: "" },
+    { videoUrl: "/videos/construccion.mp4", poster: "" },
+    { videoUrl: "/videos/construccion.mp4", poster: "" },
+
+];
 ---
-
-
-
 <BaseLayout>
-
-
+    <main class="video-container">
+        <h1> Proyectos</h1>
+        <VideoCarousel videos={videos} client:load />
+    </main>
 </BaseLayout>
 
 <style>
+    .video-container {
+        padding: 20px;
+        max-width: 95%;
+        margin: 0 auto;
 
+        h1{
+            text-align: center;
+            padding: 0.5em 0;
+            color: #0174b7;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .video-container {
+            padding: 10px;
+        }
+    }
 </style>

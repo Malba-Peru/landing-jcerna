@@ -73,6 +73,12 @@ const Drawer = ({ children }) => {
               onHiddenDrawer={hiddenDrawer}
             />
             <ItemLi
+              text="Proyectos"
+              path="/proyects"
+              onHiddenDrawer={hiddenDrawer}
+            />
+
+            <ItemLi
               text="Galeria"
               path="/gallery"
               onHiddenDrawer={hiddenDrawer}
