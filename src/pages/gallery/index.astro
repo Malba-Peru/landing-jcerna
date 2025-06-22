@@ -1,59 +1,190 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import GalleryModal from "../../components/ui/GalleryModal";
-
-const images = [
-    { src: "/images/gallery_1.webp", alt: "Equipo trabajando en un proyecto" },
-    { src: "/images/gallery_2.webp", alt: "Reunión de equipo" },
-    { src: "/images/gallery_3.webp", alt: "Presentación de proyecto" },
-    { src: "/images/gallery_4.webp", alt: "Celebración de equipo" },
-    { src: "/images/gallery_5.webp", alt: "Trabajo en oficina" },
-    { src: "/images/gallery_6.webp", alt: "Reunión creativa" },
-    { src: "/images/gallery_7.webp", alt: "Equipo colaborando" },
-    { src: "/images/gallery_8.webp", alt: "Planificación de proyecto" },
-    { src: "/images/gallery_9.webp", alt: "Desarrollo de ideas" },
-    { src: "/images/gallery_10.webp", alt: "Equipo celebrando éxito" },
-    { src: "/images/gallery_11.webp", alt: "Reunión de brainstorming" },
-    { src: "/images/gallery_12.webp", alt: "Presentación final" },
-];
+import BaseLayout from "../..//layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
     <section class="gallery">
         <h1>Galería</h1>
-        <GalleryModal images={images} client:load/>
+
+        <div class="cards-container">
+            <a href="/gallery/elevators" class="card">
+                <div class="img-card">
+                    <img src="/images/elevators.webp" alt="Departamento de Apoyo Social" class="card-image" />
+                    <h2>Proyectos Verticales</h2>
+                </div>
+                <div class="glow-separator"></div>
+                <div class="text-card">
+                    <p>Obras para ascensores</p>
+                    <span>Ver más ►</span>
+                </div>
+            </a>
+
+            <a href="/gallery/elevators" class="card">
+                <div class="img-card">
+                    <img src="/images/remodeling.webp" alt="Departamento de Apoyo Social" class="card-image" />
+                    <h2>Proyectos Integrales</h2>
+                </div>
+                <div class="glow-separator"></div>
+                <div class="text-card">
+                    <p>Servicios de remodelación</p>
+                    <span>Ver más ►</span>
+                </div>
+            </a>
+
+            <a href="/gallery/elevators" class="card">
+                <div class="img-card">
+                    <img src="/images/beach-house.webp" alt="Departamento de Apoyo Social" class="card-image" />
+                    <h2>Proyectos Costeros</h2>
+                </div>
+                <div class="glow-separator"></div>
+                <div class="text-card">
+                    <p>Construcción casas de playa</p>
+                    <span>Ver más ►</span>
+                </div>
+            </a>
+
+            <a href="/gallery/elevators" class="card">
+                <div class="img-card">
+                    <img src="/images/conditioning.webp" alt="Departamento de Apoyo Social" class="card-image" />
+                    <h2>Proyectos Comerciales</h2>
+                </div>
+                <div class="glow-separator"></div>
+                <div class="text-card">
+                    <p>Acondicionamiento para oficinas</p>
+                    <span>Ver más ►</span>
+                </div>
+            </a>
+        </div>
     </section>
 </BaseLayout>
 
 <style>
     .gallery {
-        background: #014670;
-        padding: 2em;
+        background: #243E57 ;
+        padding: 2rem;
 
         h1 {
             text-align: center;
             color: white;
-            padding-bottom: 1em;
+            margin-bottom: 2rem;
         }
 
-        .container {
+        .cards-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2em;
-            margin: auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            justify-items: center;
+        }
 
-            img {
+        .card {
+            background-color: #37474F ;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+            color: inherit;
+            text-decoration: none !important;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .img-card {
+            height: 250px;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100%;
-                border-radius: 5px;
-                border: 3px solid gray;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1;
+            }
+
+            .card-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+
+            h2 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                z-index: 2;
+                margin: 0;
+                font-size: 32px;
+                font-weight: 700;
+                text-align: center;
+                width: 100%;
+                padding: 0 20px;
             }
         }
-    }
 
-    @media (max-width: 800px) {
-        .gallery {
-            .container {
-                grid-template-columns: repeat(1, 1fr);
+        .glow-separator {
+            width: 100%;
+            height: 15px;
+            position: relative;
+            margin-top: -8px;
+            z-index: 3;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+            filter: blur(10px);
+        }
+
+        .text-card {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+
+            p {
+                margin: 0;
+                color: #e2e8f0;
+                font-size: 20px;
+                line-height: 1.6;
+                position: relative;
+                padding-bottom: 12px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: linear-gradient(90deg, transparent 0%, #e2e8f0 50%, transparent 100%);
+                }
+            }
+
+            span {
+                color: #e2e8f0;
+                font-weight: 500;
+                font-size: 18px;
+                text-decoration: none;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cards-container {
+                grid-template-columns: 1fr;
             }
         }
     }
