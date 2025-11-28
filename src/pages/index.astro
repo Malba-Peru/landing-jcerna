@@ -1,45 +1,40 @@
 ---
 import {BaseLayout} from '../layouts';
 import {AboutUs, Services, Carrousel, Path} from "../components";
+import Animations from "../components/ui/Animations.jsx";
 
-interface Img {
-    src: string;
-    alt: string;
-}
+interface Img { src: string; alt: string; }
 
 const slides: Img[] = [
-    {
-        src: "/images/banner_1.webp",
-        alt: "Banner",
-    },
-    {
-        src: "/images/banner_2.webp",
-        alt: "Banner",
-    },
-    {
-        src: "/images/banner_3.webp",
-        alt: "Banner",
-    },
-    {
-        src: "/images/banner_4.webp",
-        alt: "Banner",
-    },
+    { src: "/images/banner_1.webp", alt: "Banner" },
+    { src: "/images/banner_2.webp", alt: "Banner" },
+    { src: "/images/banner_3.webp", alt: "Banner" }
 ];
 ---
 
 <BaseLayout>
 
-    <main>
-        <Carrousel slides={slides} />
-    </main>
+  <Animations client:load />
+
+  <main class="reveal">
+      <Carrousel slides={slides} />
+  </main>
+
+  <section class="reveal">
     <Services />
-    <Path />
+  </section>
+
+  <section class="reveal">
     <AboutUs />
+  </section>
+
+  <section class="reveal">
+    <Path />
+  </section>
 
 </BaseLayout>
 
 <style lang="scss">
-  //MOBILE AND TABLET
   main {
     .banner-wrapper {
       margin: 0 auto;
@@ -50,17 +45,16 @@ const slides: Img[] = [
       width: 100%;
       max-width: 1530px;
       min-height: 70vh;
+
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         z-index: 100;
       }
+
       .wrapper-content {
         width: 90%;
         margin: auto;
@@ -71,28 +65,23 @@ const slides: Img[] = [
         align-items: center;
         justify-content: center;
         z-index: 200;
+
         @media (min-width: 920px) {
           width: 60%;
         }
+
         .quote-wrapper {
-          padding: 2em 0 0 0;
-          a {
-            text-decoration: auto;
-          }
+          padding-top: 2em;
+
+          a { text-decoration: auto; }
         }
       }
     }
   }
 
-  //DESKTOP
   @media (min-width: 920px) {
-    main {
-      .banner-wrapper {
-        img {
-          width: 100%;
-          height: 70vh;
-        }
-      }
+    main .banner-wrapper img {
+      height: 70vh;
     }
   }
 </style>

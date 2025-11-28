@@ -3,29 +3,48 @@ import React, { useState } from "react";
 const GalleryModal = ({ images }) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
-  const openModal = (index) => {
-    setSelectedIndex(index);
-  };
+  const openModal = (index) => setSelectedIndex(index);
+  const closeModal = () => setSelectedIndex(null);
 
-  const closeModal = () => {
-    setSelectedIndex(null);
-  };
+  const goToPrevious = () =>
+    setSelectedIndex((i) => (i > 0 ? i - 1 : images.length - 1));
 
-  const goToPrevious = () => {
-    setSelectedIndex((prevIndex) =>
-      prevIndex > 0 ? prevIndex - 1 : images.length - 1,
-    );
-  };
+  const goToNext = () =>
+    setSelectedIndex((i) => (i < images.length - 1 ? i + 1 : 0));
 
-  const goToNext = () => {
-    setSelectedIndex((prevIndex) =>
-      prevIndex < images.length - 1 ? prevIndex + 1 : 0,
-    );
+  const getModalImageStyle = () => {
+    const width = window.innerWidth;
+
+    if (width < 600) {
+      return {
+        width: "95vw",
+        height: "50vh",
+        objectFit: "cover",
+        borderRadius: "10px",
+        border: "3px solid white",
+      };
+    } else if (width < 1024) {
+      return {
+        width: "85vw",
+        height: "70vh",
+        objectFit: "cover",
+        borderRadius: "10px",
+        border: "3px solid white",
+      };
+    } else {
+      return {
+        width: "70vw",
+        height: "80vh",
+        objectFit: "cover",
+        borderRadius: "10px",
+        border: "3px solid white",
+      };
+    }
   };
 
   return (
     <div>
-      {/* Galería de imágenes */}
+      {/* GALERÍA */}
       <div className="container">
         {images.map((image, index) => (
           <img
@@ -39,7 +58,7 @@ const GalleryModal = ({ images }) => {
         ))}
       </div>
 
-      {/* Modal para mostrar la imagen seleccionada */}
+      {/* MODAL */}
       {selectedIndex !== null && (
         <div
           style={{
@@ -54,9 +73,7 @@ const GalleryModal = ({ images }) => {
             alignItems: "center",
             zIndex: 1000,
           }}
-          onClick={closeModal}
-        >
-          {/* Contenedor de la imagen y las flechas */}
+          onClick={closeModal}>
           <div
             style={{
               position: "relative",
@@ -66,9 +83,8 @@ const GalleryModal = ({ images }) => {
               maxWidth: "90%",
               maxHeight: "90%",
             }}
-            onClick={(e) => e.stopPropagation()} // Evita que el modal se cierre al hacer clic en la imagen o flechas
-          >
-            {/* Flecha izquierda */}
+            onClick={(e) => e.stopPropagation()}>
+            {/* IZQUIERDA */}
             <div
               style={{
                 position: "absolute",
@@ -88,24 +104,18 @@ const GalleryModal = ({ images }) => {
               onClick={(e) => {
                 e.stopPropagation();
                 goToPrevious();
-              }}
-            >
-              &#10094; {/* Icono de flecha izquierda */}
+              }}>
+              &#10094;
             </div>
 
-            {/* Imagen seleccionada */}
+            {/* IMAGEN RESPONSIVE */}
             <img
               src={images[selectedIndex].src}
               alt={images[selectedIndex].alt}
-              style={{
-                maxWidth: "100%",
-                maxHeight: "100%",
-                borderRadius: "10px",
-                border: "3px solid white",
-              }}
+              style={getModalImageStyle()}
             />
 
-            {/* Flecha derecha */}
+            {/* DERECHA */}
             <div
               style={{
                 position: "absolute",
@@ -125,9 +135,8 @@ const GalleryModal = ({ images }) => {
               onClick={(e) => {
                 e.stopPropagation();
                 goToNext();
-              }}
-            >
-              &#10095; {/* Icono de flecha derecha */}
+              }}>
+              &#10095;
             </div>
           </div>
         </div>

@@ -1,62 +1,31 @@
 ---
 import BaseLayout from "../..//layouts/BaseLayout.astro";
+import { galleryItems } from "../../data-list/gallery";
 ---
 
 <BaseLayout>
-    <section class="gallery">
-        <h1>Galería</h1>
+  <section class="gallery">
+    <h1>Galería</h1>
 
-        <div class="cards-container">
-            <a href="/gallery/elevators" class="card">
-                <div class="img-card">
-                    <img src="/images/elevators.webp" alt="Departamento de Apoyo Social" class="card-image" />
-                    <h2>Proyectos Verticales</h2>
-                </div>
-                <div class="glow-separator"></div>
-                <div class="text-card">
-                    <p>Obras para ascensores</p>
-                    <span>Ver más ►</span>
-                </div>
-            </a>
-
-            <a href="/gallery/elevators" class="card">
-                <div class="img-card">
-                    <img src="/images/remodeling.webp" alt="Departamento de Apoyo Social" class="card-image" />
-                    <h2>Proyectos Integrales</h2>
-                </div>
-                <div class="glow-separator"></div>
-                <div class="text-card">
-                    <p>Servicios de remodelación</p>
-                    <span>Ver más ►</span>
-                </div>
-            </a>
-
-            <a href="/gallery/elevators" class="card">
-                <div class="img-card">
-                    <img src="/images/beach-house.webp" alt="Departamento de Apoyo Social" class="card-image" />
-                    <h2>Proyectos Costeros</h2>
-                </div>
-                <div class="glow-separator"></div>
-                <div class="text-card">
-                    <p>Construcción casas de playa</p>
-                    <span>Ver más ►</span>
-                </div>
-            </a>
-
-            <a href="/gallery/elevators" class="card">
-                <div class="img-card">
-                    <img src="/images/conditioning.webp" alt="Departamento de Apoyo Social" class="card-image" />
-                    <h2>Proyectos Comerciales</h2>
-                </div>
-                <div class="glow-separator"></div>
-                <div class="text-card">
-                    <p>Acondicionamiento para oficinas</p>
-                    <span>Ver más ►</span>
-                </div>
-            </a>
-        </div>
-    </section>
+    <div class="cards-container">
+      {galleryItems.map(item => (
+        <a href={`/gallery/${item.slug}`} class="card">
+          <div class="img-card">
+            <img src={item.img} alt={item.title} class="card-image" />
+            <h2>{item.title}</h2>
+          </div>
+          <div class="glow-separator"></div>
+          <div class="text-card">
+            <p>{item.desc}</p>
+            <span>Ver más ►</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
 </BaseLayout>
+
+
 
 <style>
     .gallery {

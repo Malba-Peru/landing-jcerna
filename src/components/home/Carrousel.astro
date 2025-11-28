@@ -19,33 +19,34 @@ const { slides = [] } = Astro.props;
     });
 </script>
 
-<!-- Swiper -->
 <div class="swiper" id="mySwiper">
-<div class="swiper-wrapper">
-{
-    slides.map((slide, index) => (
-        <div key={index} class="swiper-slide">
-    <img src={slide.src} alt={slide.alt}/>
-        </div>
-        ))
+    <div class="swiper-wrapper">
+        {
+            slides.map((slide, index) => (
+                <div key={index} class="swiper-slide">
+                    <img src={slide.src} alt={slide.alt} />
+                </div>
+            ))
         }
     </div>
+
     <div class="swiper-button-prev">
-    <Icon
-        class="icon"
-        pack="ic"
-        name="twotone-keyboard-arrow-left"
-        size={49}
-/>
-</div>
-<div class="swiper-button-next">
-<Icon
-class="icon"
-pack="ic"
-name="twotone-keyboard-arrow-right"
-size={49}
-/>
-</div>
+        <Icon
+            class="icon"
+            pack="ic"
+            name="twotone-keyboard-arrow-left"
+            size={49}
+        />
+    </div>
+
+    <div class="swiper-button-next">
+        <Icon
+            class="icon"
+            pack="ic"
+            name="twotone-keyboard-arrow-right"
+            size={49}
+        />
+    </div>
 </div>
 
 <style>
@@ -53,41 +54,55 @@ size={49}
     width: 100%;
     height: 70vh;
     position: relative;
+
     .swiper-slide {
-    img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000; /* elimina bordes feos */
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* llena todo el contenedor */
+            object-position: center;
+        }
     }
 
     .swiper-button-prev,
     .swiper-button-next {
-    cursor: pointer;
-    position: absolute;
-    color: #d0d0d3;
-    z-index: 300;
-    top: 50%;
-    font-size: 2em;
+        cursor: pointer;
+        position: absolute;
+        color: #d0d0d3;
+        z-index: 300;
+        top: 50%;
+        font-size: 2em;
     }
+
     .swiper-button-prev {
-    left: 3%;
+        left: 3%;
     }
-    .swiper-button-next {
-    right: 3%;
-    }
-    @media (max-width: 480px) {
-    .swiper {
-    height: 40vh;
 
-    .swiper-button-prev,
     .swiper-button-next {
-    font-size: 1.2em;
-    left: 8%;
-    right: 8%;
+        right: 3%;
     }
+
+    @media (max-width: 768px) {
+        height: 45vh;
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            font-size: 1.4em;
+        }
     }
+
+    @media (max-width: 480px) {
+        height: 35vh;
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            font-size: 1.1em;
+        }
     }
-    }
+}
 </style>
