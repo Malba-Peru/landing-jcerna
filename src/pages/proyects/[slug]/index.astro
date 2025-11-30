@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ProyectModal from "../../../components/ui/ProyectsModal";
+import { proyectsItems } from "../../../data-list/proyects.js"; 
+import { proyectsImages } from "../../../data-list/proyectsImages.js";
+
+const { slug } = Astro.params;
+
+const currentItem = proyectsItems.find(item => item.slug === slug);
+
+if (!currentItem) {
+  throw new Error(`Proyectos Terminados no encontrada para: ${slug}`);
+}
+---
+
+<BaseLayout>
+  <section class="proyects-page">
+    <h1>{currentItem.title}</h1>
+    <ProyectModal images={proyectsImages} client:load />
+  </section>
+</BaseLayout>
+
+<style> .proyects-page { background: #014670; padding: 2em; h1 { text-align: center; color: white; padding-bottom: 1em; } .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2em; margin: auto; img { width: 100%; height: 220px; object-fit: cover; border-radius: 5px; border: 3px solid gray; } } } @media (max-width: 800px) { .proyects-page { .container { grid-template-columns: repeat(1, 1fr); } } } </style>

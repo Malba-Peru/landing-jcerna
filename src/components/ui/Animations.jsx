@@ -9,9 +9,9 @@ const Animations = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
-          } else {
-            // Se vuelve a ocultar cuando sales → vuelve a animar al entrar
-            entry.target.classList.remove("show");
+
+            // ❗Deja de observar → para que NO vuelva a animarse
+            observer.unobserve(entry.target);
           }
         });
       },

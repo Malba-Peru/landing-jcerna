@@ -1,4 +1,4 @@
-export const galleryItems = [
+export const proyectsItems = [
   {
     slug: "vertical",
     title: "Proyectos Verticales",

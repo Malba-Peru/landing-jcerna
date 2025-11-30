@@ -13,8 +13,7 @@ const Drawer = ({ children }) => {
     <>
       <button
         style={{ border: "none", background: "none" }}
-        onClick={showDrawer}
-      >
+        onClick={showDrawer}>
         {children}
       </button>
 
@@ -30,21 +29,18 @@ const Drawer = ({ children }) => {
           transform: visibleDrawer ? "translateX(0%)" : "translateX(100%)",
           display: "grid",
           gridTemplateColumns: "25% 1fr",
-        }}
-      >
+        }}>
         <div
           onClick={hiddenDrawer}
           style={{
             background: "rgba(1, 116, 183, 0.2)",
-          }}
-        ></div>
+          }}></div>
         <article
           style={{
             position: "relative",
             background: "#0174B7",
             padding: "2em 1em",
-          }}
-        >
+          }}>
           <span
             style={{
               position: "absolute",
@@ -52,8 +48,7 @@ const Drawer = ({ children }) => {
               right: "2em",
               color: "white",
             }}
-            onClick={hiddenDrawer}
-          >
+            onClick={hiddenDrawer}>
             X
           </span>
           <ul style={{ listStyle: "none" }}>
@@ -72,7 +67,7 @@ const Drawer = ({ children }) => {
               path={isHomePage ? "#about-us" : "/#about-us"}
               onHiddenDrawer={hiddenDrawer}
             />
-             {/*
+            {/*
             <ItemLi
               text="Proyectos"
               path="/proyects"
@@ -80,9 +75,9 @@ const Drawer = ({ children }) => {
              />
              */}
 
-              <ItemLi
-              text="Galeria"
-              path="/gallery"
+            <ItemLi
+              text="Proyectos"
+              path="/proyects"
               onHiddenDrawer={hiddenDrawer}
             />
             <ItemLi
@@ -102,15 +97,13 @@ export default Drawer;
 const ItemLi = ({ text, path = "/", onHiddenDrawer }) => (
   <li
     style={{ padding: "0.3em 0", fontSize: "1.5em" }}
-    onClick={onHiddenDrawer}
-  >
+    onClick={onHiddenDrawer}>
     <a
       href={path}
       style={{
         textDecoration: "none",
         color: "white",
-      }}
-    >
+      }}>
       {text}
     </a>
   </li>

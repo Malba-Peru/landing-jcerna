@@ -1,36 +1,40 @@
 ---
 import {BaseLayout} from '../layouts';
 import {AboutUs, Services, Carrousel, Path} from "../components";
-import Animations from "../components/ui/Animations.jsx";
+import Animations from "../components/ui/Animations.jsx"; 
 
-interface Img { src: string; alt: string; }
+interface Img {
+    src: string;
+    alt: string;
+}
 
 const slides: Img[] = [
     { src: "/images/banner_1.webp", alt: "Banner" },
     { src: "/images/banner_2.webp", alt: "Banner" },
-    { src: "/images/banner_3.webp", alt: "Banner" }
+    { src: "/images/banner_3.webp", alt: "Banner" },
 ];
 ---
 
 <BaseLayout>
 
+
   <Animations client:load />
 
   <main class="reveal">
-      <Carrousel slides={slides} />
+    <Carrousel slides={slides} />
   </main>
 
-  <section class="reveal">
+  <div class="reveal">
     <Services />
-  </section>
+  </div>
 
-  <section class="reveal">
+  <div class="reveal">
     <AboutUs />
-  </section>
+  </div>
 
-  <section class="reveal">
+  <div class="reveal">
     <Path />
-  </section>
+  </div>
 
 </BaseLayout>
 
@@ -51,7 +55,10 @@ const slides: Img[] = [
         height: 100%;
         object-fit: cover;
         position: absolute;
-        inset: 0;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
         z-index: 100;
       }
 
@@ -71,17 +78,23 @@ const slides: Img[] = [
         }
 
         .quote-wrapper {
-          padding-top: 2em;
-
-          a { text-decoration: auto; }
+          padding: 2em 0 0 0;
+          a {
+            text-decoration: auto;
+          }
         }
       }
     }
   }
 
   @media (min-width: 920px) {
-    main .banner-wrapper img {
-      height: 70vh;
+    main {
+      .banner-wrapper {
+        img {
+          width: 100%;
+          height: 70vh;
+        }
+      }
     }
   }
 </style>

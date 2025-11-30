@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const GalleryModal = ({ images }) => {
+const ProyectModal = ({ images }) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const openModal = (index) => setSelectedIndex(index);
@@ -44,7 +44,7 @@ const GalleryModal = ({ images }) => {
 
   return (
     <div>
-      {/* GALERÍA */}
+      {/* Proyectos Terminados */}
       <div className="container">
         {images.map((image, index) => (
           <img
@@ -145,4 +145,4 @@ const GalleryModal = ({ images }) => {
   );
 };
 
-export default GalleryModal;
+export default ProyectModal;
