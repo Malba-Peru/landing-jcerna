@@ -10,7 +10,6 @@ const Animations = () => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
 
-            // ❗Deja de observar → para que NO vuelva a animarse
             observer.unobserve(entry.target);
           }
         });
