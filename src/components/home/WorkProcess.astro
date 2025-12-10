@@ -1,0 +1,99 @@
+---
+import { workflow } from "../../data-list/workflow.js";
+import Icon from "astro-icon";
+---
+
+<section class="process">
+  <h1>Proceso de Trabajo</h1>
+
+  <div class="grid">
+    {workflow.map((step) => (
+      <div class="card">
+        <div class="icon-wrapper">
+          <Icon name={step.icon} class="icon" />
+        </div>
+
+        <h2>{step.title}</h2>
+        <p>{step.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style lang="scss">
+.process {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    color: #003F63;
+    font-weight: 700;
+  }
+
+  .grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    .card {
+      background: #015A8F;
+      color: white;
+      padding: 2rem 1.5rem;
+      border-radius: 14px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.25s ease;
+
+      &:hover {
+        transform: translateY(-6px);
+      }
+
+      .icon-wrapper {
+        width: 65px;
+        height: 65px;
+        margin: 0 auto 1rem;
+        background: #003F63;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .icon {
+          width: 32px;
+          height: 32px;
+          color: white;
+        }
+      }
+
+      h2 {
+        font-size: 1.3rem;
+        margin: 0.5rem 0 0.7rem;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.2;
+        text-align: justify;
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .process {
+    h1 {
+      font-size: 1.8rem;
+    }
+    .grid .card {
+      padding: 1.5rem;
+    }
+  }
+}
+</style>
