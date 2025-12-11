@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ProyectModal from "../../../components/ui/ProyectsModal";
-import { proyectsItems, proyectsImages } from "../../../data-list"; 
+import { proyectsItems, proyImages } from "../../../data-list"; 
 
 const { slug } = Astro.params;
 
@@ -14,7 +14,7 @@ if (!currentItem) {
 <BaseLayout>
   <section class="proyects-page">
     <h1>{currentItem.title}</h1>
-    <ProyectModal images={proyectsImages} client:load />
+    <ProyectModal images={proyImages} client:load />
   </section>
 </BaseLayout>
 
