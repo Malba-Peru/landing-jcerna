@@ -1,43 +1,35 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 const Animations = () => {
   useEffect(() => {
-    const elements = document.querySelectorAll(".reveal");
+    const scan = () => {
+      const elements = document.querySelectorAll(".reveal:not(.show)");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+      if (elements.length === 0) return;
 
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
 
-    elements.forEach((el) => observer.observe(el));
+      elements.forEach((el) => observer.observe(el));
+    };
 
-    return () => observer.disconnect();
+    scan();
+
+    const interval = setInterval(scan, 400);
+
+    return () => clearInterval(interval);
   }, []);
 
-  return (
-    <style>
-      {`
-        .reveal {
-          opacity: 0;
-          transform: translateY(40px);
-          transition: all 0.8s ease-out;
-        }
-
-        .reveal.show {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      `}
-    </style>
-  );
+  return null;
 };
 
 export default Animations;

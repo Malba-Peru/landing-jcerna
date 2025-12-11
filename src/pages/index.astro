@@ -1,24 +1,22 @@
 ---
-import {BaseLayout} from '../layouts';
-import {AboutUs, Services, Carrousel, Path, WorkProcess} from "../components";
-import Animations from "../components/ui/Animations.jsx"; 
+import { BaseLayout } from '../layouts';
+import { AboutUs, Services, Carrousel, Path, WorkProcess } from "../components";
+import Animations from "../components/ui/Animations.jsx";
 
 interface Img {
-    src: string;
-    alt: string;
+  src: string;
+  alt: string;
 }
 
 const slides: Img[] = [
-    { src: "/images/banner_1.webp", alt: "Banner" },
-    { src: "/images/banner_2.webp", alt: "Banner" },
-    { src: "/images/banner_3.webp", alt: "Banner" },
+  { src: "/images/banner_1.webp", alt: "Banner" },
+  { src: "/images/banner_2.webp", alt: "Banner" },
+  { src: "/images/banner_3.webp", alt: "Banner" },
 ];
 ---
 
 <BaseLayout>
-
-
-  <Animations client:load />
+  <Animations client:idle />
 
   <main class="reveal">
     <Carrousel slides={slides} />
@@ -35,12 +33,25 @@ const slides: Img[] = [
   <div class="reveal">
     <Path />
   </div>
+
   <div class="reveal">
     <WorkProcess />
   </div>
+
 </BaseLayout>
 
 <style lang="scss">
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+  }
+
+  .reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   main {
     .banner-wrapper {
       margin: 0 auto;
@@ -57,10 +68,7 @@ const slides: Img[] = [
         height: 100%;
         object-fit: cover;
         position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         z-index: 100;
       }
 
@@ -81,6 +89,7 @@ const slides: Img[] = [
 
         .quote-wrapper {
           padding: 2em 0 0 0;
+
           a {
             text-decoration: auto;
           }
