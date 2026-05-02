@@ -1,81 +1,206 @@
 ---
 import Counter from "../ui/Counter.jsx";
+import IconFontAwesome from "../ui/IconFontAwesome.astro";
+import ParallaxBackground from "../ui/ParallaxBackground.jsx";
 ---
 
 <section id="path">
+    <ParallaxBackground client:load />
+
+    <div class="overlay"></div>
+
     <div class="path-container">
-        <div class="years">
-            <Counter client:load target={10} />
-            <p>Años en el Negocio</p>
+        <div class="item">
+            <div class="icon-box">
+                <IconFontAwesome
+                    width="58px"
+                    viewBox="0 0 384 512"
+                    svg={`<path fill="white" d="M256 64a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zM152.9 169.3c-23.7-8.4-44.5-24.3-58.8-45.8L74.6 94.2C64.8 79.5 45 75.6 30.3 85.4S11.6 115 21.4 129.8L40.9 159c18.1 27.1 42.8 48.4 71.1 62.4L112 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96 32 0 0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-258.4c29.1-14.2 54.4-36.2 72.7-64.2l18.2-27.9c9.6-14.8 5.4-34.6-9.4-44.3s-34.6-5.5-44.3 9.4L291 122.4c-21.8 33.4-58.9 53.6-98.8 53.6-12.6 0-24.9-2-36.6-5.8-.9-.3-1.8-.7-2.7-.9z"/>`}
+                />
+            </div>
+
+            <div class="info">
+                <Counter client:load target={10} />
+                <p>Años en el Negocio</p>
+            </div>
         </div>
-        <div class="client">
-            <Counter client:load target={1500} />
-            <p>Clientes Satisfechos</p>
+
+        <div class="item">
+            <div class="icon-box">
+                <IconFontAwesome
+                    width="58px"
+                    viewBox="0 0 512 512"
+                    svg={`<path fill="white" d="M256 0a64 64 0 1 1 0 128 64 64 0 1 1 0-128zm96 312c0 25-12.7 47-32 59.9l0 92.1c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-92.1C172.7 359 160 337 160 312l0-40c0-53 43-96 96-96s96 43 96 96l0 40zM96 32a56 56 0 1 1 0 112 56 56 0 1 1 0-112zm16 240l0 32c0 32.5 12.1 62.1 32 84.7l0 75.3c0 1.2 0 2.5 .1 3.7-8.5 7.6-19.7 12.3-32.1 12.3l-32 0c-26.5 0-48-21.5-48-48l0-56.6C12.9 364.4 0 343.7 0 320l0-32c0-53 43-96 96-96 12.7 0 24.8 2.5 35.9 6.9-12.6 21.4-19.9 46.4-19.9 73.1zM368 464l0-75.3c19.9-22.5 32-52.2 32-84.7l0-32c0-26.7-7.3-51.6-19.9-73.1 11.1-4.5 23.2-6.9 35.9-6.9 53 0 96 43 96 96l0 32c0 23.7-12.9 44.4-32 55.4l0 56.6c0 26.5-21.5 48-48 48l-32 0c-12.3 0-23.6-4.6-32.1-12.3 0-1.2 .1-2.5 .1-3.7zM416 32a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>`}
+                />
+            </div>
+
+            <div class="info">
+                <Counter client:load target={500} />
+                <p>Clientes Satisfechos</p>
+            </div>
         </div>
-        <div class="proyects">
-            <Counter client:load  target={50} />
-            <p>Proyectos Completados</p>
-        </div>
-        <div class="personal">
-            <Counter client:load  target={20} />
-            <p>Personal Capacitado</p>
+
+        <div class="item">
+            <div class="icon-box">
+                <IconFontAwesome
+                    width="58px"
+                    viewBox="0 0 384 512"
+                    svg={`<path fill="white" d="M64 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16l80 0 0-80c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 80 80 0c8.8 0 16-7.2 16-16l0-384c0-8.8-7.2-16-16-16L64 48z"/>`}
+                />
+            </div>
+
+            <div class="info">
+                <Counter client:load target={30} />
+                <p>Proyectos Completados</p>
+            </div>
         </div>
     </div>
 </section>
 
 <style>
-
     section {
-        padding: 2em;
+        position: relative;
         width: 100%;
+        min-height: 350px;
         display: flex;
         justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        padding: 4em 2em;
+
+        .background-wrapper {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .background-image {
+            position: absolute;
+            top: -25%;
+            left: 0;
+            width: 100%;
+            height: 200%;
+            object-fit: cover;
+            object-position: center center;
+            will-change: transform;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2;
+        }
+
         .path-container {
-            background: #0174B7;
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1400px;
             display: flex;
             flex-wrap: wrap;
-            gap: 3em;
-            padding: 2em;
-            border-radius: 20px;
             justify-content: center;
-            div {
+            align-items: center;
+            gap: 4em;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2em;
+            width: 100%;
+            max-width: 320px;
+
+            .icon-box {
+                min-width: 58px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-shrink: 0;
+            }
+
+            .info {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                gap: 1em;
-                width: 100%;
-                text-align: center;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 0.4em;
 
                 h1 {
                     font-size: 4em;
                     color: white;
+                    margin: 0;
+                    line-height: 1;
                 }
-                p {
-                    font-size: 1.5em;
-                    color: white;
 
+                p {
+                    color: white;
+                    font-size: 1.2em;
+                    margin: 0;
+                    line-height: 1.3;
                 }
             }
         }
     }
 
+    @media (max-width: 768px) {
+        section {
+            min-height: 850px;
+            padding: 4em 1.5em;
 
-    @media (min-width: 600px) {
-        .path-container div {
-            width: 45%;
+            .background-image {
+                top: -5%;
+                height: 120%;
+                width: 100%;
+                object-fit: cover;
+                object-position: 68% center;
+            }
+
+            .path-container {
+                flex-direction: column;
+                gap: 3.5em;
+                align-items: center;
+            }
+
+            .item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1em;
+                max-width: 100%;
+            }
+
+            .icon-box {
+                min-width: auto;
+            }
+
+            .info {
+                align-items: center !important;
+
+                h1 {
+                    font-size: 3.5em;
+                }
+
+                p {
+                    font-size: 1.3em;
+                    text-align: center;
+                }
+            }
         }
     }
 
-    @media (min-width: 1024px) {
-        .path-container {
-            flex-wrap: nowrap;
-            gap: 7em;
-        }
+    @media (min-width: 769px) {
+        section {
+            .path-container {
+                flex-wrap: nowrap;
+                gap: 5em;
+            }
 
-        .path-container div {
-            width: auto;
+            .item {
+                width: auto;
+                flex-direction: row;
+            }
         }
     }
-
-
 </style>

@@ -30,7 +30,7 @@ import Icon from "astro-icon";
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2.2rem;
-    color: #003F63;
+    color: #003f63;
     font-weight: 700;
   }
 
@@ -40,13 +40,35 @@ import Icon from "astro-icon";
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 
     .card {
-      background: #015A8F;
+      background-color: #015a8f;
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.16) 2px,
+          transparent 2px
+        ),
+        linear-gradient(
+          rgba(255, 255, 255, 0.16) 2px,
+          transparent 2px
+        ),
+        linear-gradient(
+          90deg,
+          transparent 30px,
+          rgba(255, 255, 255, 0.14) 2px,
+          transparent 32px
+        );
+
+      background-size: 60px 30px, 60px 30px, 60px 30px;
+      background-position: 0 0, 0 0, 0 15px;
+
       color: white;
       padding: 2rem 1.5rem;
       border-radius: 14px;
       position: relative;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow:
+        inset 0 2px 4px rgba(255, 255, 255, 0.08),
+        0 4px 12px rgba(0, 0, 0, 0.18);
       transition: transform 0.25s ease;
 
       &:hover {
@@ -57,7 +79,7 @@ import Icon from "astro-icon";
         width: 65px;
         height: 65px;
         margin: 0 auto 1rem;
-        background: #003F63;
+        background: #003f63;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -78,9 +100,9 @@ import Icon from "astro-icon";
 
       p {
         font-size: 1rem;
-        line-height: 1.2;
+        line-height: 1.4;
         text-align: justify;
-        opacity: 0.9;
+        opacity: 0.92;
       }
     }
   }
@@ -91,8 +113,11 @@ import Icon from "astro-icon";
     h1 {
       font-size: 1.8rem;
     }
-    .grid .card {
-      padding: 1.5rem;
+
+    .grid {
+      .card {
+        padding: 1.5rem;
+      }
     }
   }
 }
