@@ -4,105 +4,203 @@ const { slides = [] } = Astro.props;
 ---
 
 <script>
-    import "swiper/css";
-    import Swiper from "swiper";
-    import { register } from "swiper/element/bundle";
-    register();
+  import "swiper/css";
+  import Swiper from "swiper";
+  import { register } from "swiper/element/bundle";
 
-    new Swiper("#mySwiper", {
-        autoplay: true,
-        loop: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
+  register();
+
+  new Swiper("#mySwiper", {
+    autoplay: {
+      delay: 4000,
+    },
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    on: {
+      slideChangeTransitionStart() {
+        document.querySelectorAll(".slide-text h1, .slide-text p").forEach((el) => {
+          el.classList.remove("animate");
+          void el.offsetWidth;
+          el.classList.add("animate");
+        });
+      },
+    },
+  });
 </script>
 
 <div class="swiper" id="mySwiper">
-    <div class="swiper-wrapper">
-        {
-            slides.map((slide, index) => (
-                <div key={index} class="swiper-slide">
-                    <img src={slide.src} alt={slide.alt} />
-                </div>
-            ))
-        }
-    </div>
+  <div class="swiper-wrapper">
+    {
+      slides.map((slide, index) => (
+        <div key={index} class="swiper-slide">
+          <img src={slide.src} alt={slide.alt} />
 
-    <div class="swiper-button-prev">
-        <Icon
-            class="icon"
-            pack="ic"
-            name="twotone-keyboard-arrow-left"
-            size={49}
-        />
-    </div>
+          <div class="overlay"></div>
 
-    <div class="swiper-button-next">
-        <Icon
-            class="icon"
-            pack="ic"
-            name="twotone-keyboard-arrow-right"
-            size={49}
-        />
-    </div>
+          <div class="slide-text">
+            <h1 class="animate">{slide.title}</h1>
+            <p class="animate">{slide.subtitle}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="swiper-button-prev">
+    <Icon
+      class="icon"
+      pack="ic"
+      name="twotone-keyboard-arrow-left"
+      size={49}
+    />
+  </div>
+
+  <div class="swiper-button-next">
+    <Icon
+      class="icon"
+      pack="ic"
+      name="twotone-keyboard-arrow-right"
+      size={49}
+    />
+  </div>
 </div>
 
-<style>
+<style lang="scss">
 .swiper {
-    width: 100%;
-    height: 70vh;
+  width: 100%;
+  height: 70vh;
+  position: relative;
+
+  .swiper-slide {
     position: relative;
+    overflow: hidden;
 
-    .swiper-slide {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #000; /* elimina bordes feos */
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* llena todo el contenedor */
-            object-position: center;
-        }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
 
-    .swiper-button-prev,
-    .swiper-button-next {
-        cursor: pointer;
-        position: absolute;
-        color: #d0d0d3;
-        z-index: 300;
-        top: 50%;
-        font-size: 2em;
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.75) 0%,
+        rgba(0, 0, 0, 0.35) 60%,
+        rgba(0, 0, 0, 0.15) 100%
+      );
+      z-index: 2;
     }
 
-    .swiper-button-prev {
-        left: 3%;
+    .slide-text {
+      position: absolute;
+      z-index: 3;
+      top: 50%;
+      left: 8%;
+      transform: translateY(-50%);
+      color: white;
+      max-width: 700px;
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 4.5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 0.4em;
+        text-transform: uppercase;
+        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+      }
+
+      p {
+        font-size: clamp(1rem, 2vw, 1.4rem);
+        line-height: 1.5;
+        color: #e5e7eb;
+        max-width: 550px;
+        text-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+        opacity: 0;
+      }
+
+      h1.animate {
+        animation: fadeUp 0.9s ease forwards;
+        animation-delay: 0.2s;
+      }
+
+      p.animate {
+        animation: fadeUp 0.9s ease forwards;
+        animation-delay: 0.5s;
+      }
     }
+  }
 
-    .swiper-button-next {
-        right: 3%;
+  .swiper-button-prev,
+  .swiper-button-next {
+    cursor: pointer;
+    position: absolute;
+    color: white;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .swiper-button-prev {
+    left: 3%;
+  }
+
+  .swiper-button-next {
+    right: 3%;
+  }
+
+  @media (max-width: 768px) {
+    height: 50vh;
+
+    .slide-text {
+      left: 6%;
+      max-width: 85%;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
     }
+  }
 
-    @media (max-width: 768px) {
-        height: 45vh;
+  @media (max-width: 480px) {
+    height: 40vh;
 
-        .swiper-button-prev,
-        .swiper-button-next {
-            font-size: 1.4em;
-        }
+    .slide-text {
+      left: 5%;
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
     }
+  }
+}
 
-    @media (max-width: 480px) {
-        height: 35vh;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+    filter: blur(8px);
+  }
 
-        .swiper-button-prev,
-        .swiper-button-next {
-            font-size: 1.1em;
-        }
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
 </style>

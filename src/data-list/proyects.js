@@ -23,4 +23,10 @@ export const proyectsItems = [
     img: "/images/conditioning.webp",
     desc: "Acondicionamiento para oficinas",
   },
+    {
+    slug: "varied",
+    title: "Proyectos Variados",
+    img: "/images/pool.webp",
+    desc: "Otras obras y servicios",
+  },
 ];
