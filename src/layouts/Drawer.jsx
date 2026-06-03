@@ -67,6 +67,12 @@ const Drawer = ({ children }) => {
               path={isHomePage ? "#about-us" : "/#about-us"}
               onHiddenDrawer={hiddenDrawer}
             />
+
+            <ItemLi
+              text="Clientes"
+              path={isHomePage ? "#clients" : "/#clients"}
+              onHiddenDrawer={hiddenDrawer}
+            />
             {/*
             <ItemLi
               text="Proyectos"

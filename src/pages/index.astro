@@ -1,6 +1,6 @@
 ---
 import { BaseLayout } from '../layouts';
-import { AboutUs, Services, Carrousel, Path, WorkProcess } from "../components";
+import { AboutUs, Services, Carrousel, Path, WorkProcess, ManagerMessage, ClientLogo } from "../components";
 import Animations from "../components/ui/Animations.jsx";
 
 interface Img {
@@ -54,6 +54,16 @@ const slides: Img[] = [
   <div class="reveal">
     <WorkProcess />
   </div>
+
+ <div class="reveal">
+    <ManagerMessage />
+
+  </div>
+
+  <div class="reveal">
+      <ClientLogo />
+  </div>
+
 </BaseLayout>
 
 <style lang="scss">

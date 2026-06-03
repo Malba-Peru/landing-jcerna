@@ -54,6 +54,11 @@ const isHomePage = Astro.url.pathname === "/";
                     >Nosotros</a
                     >
                 </li>
+                <li>
+                    <a href={isHomePage ? "#clients" : "/#clients"} rel="clientes"
+                    >Clientes</a
+                    >
+                </li>
                 <!-- <li><a href="/proyects" rel="proyectos">Proyectos</a></li> -->
                 <li><a href="/proyects" rel="Proyectos">Proyectos</a></li>
                 <li><a href="/contact" rel="contacto">Contacto</a></li>
@@ -73,8 +78,8 @@ const isHomePage = Astro.url.pathname === "/";
                 <span>Correo:</span>
                 <p>
                     <Icon pack="mdi" name="gmail" size={20} />
-                    <a href="mailto:jcerna.eirl@gmail.com"
-                    >jcerna.eirl@gmail.com
+                    <a href="mailto:camilacerna@jcernaeirl.com"
+                    >camilacerna@jcernaeirl.com
                     </a>
                 </p>
             </div>
@@ -82,8 +87,8 @@ const isHomePage = Astro.url.pathname === "/";
                 <span>Dirección:</span>
                 <p>
                     <Icon pack="mdi" name="location" size={20} />
-                    <a href="https://maps.app.goo.gl/SoiN9vDVG21JDARo9" target="_blank"
-                    >Mz S Lote 4, Luis Felipe de las Casas , Chorrillos, Lima</a
+                    <a href="https://maps.app.goo.gl/mHnS88wz9xpyuJna9" target="_blank"
+                    >Mz A Lote 24, Virgen del Morro Solar, Chorrillos, Lima</a
                     >
                 </p>
             </div>
@@ -92,7 +97,7 @@ const isHomePage = Astro.url.pathname === "/";
 
     <div class="footer__bottom">
         <p>
-            © 2025 Todos los derechos reservados <strong>
+            © 2026 Todos los derechos reservados <strong>
             Jcerna | Contratistas generales</strong
         > - Desarrollado por
             <a href="https://malbaperu.com" target="_blank">Malba Corporacion</a

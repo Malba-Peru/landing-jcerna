@@ -11,7 +11,6 @@ export default function ParallaxBackground() {
             const rect = containerRef.current.getBoundingClientRect();
             const isMobile = window.innerWidth <= 768;
 
-            // Desktop más fuerte, mobile más suave
             const speed = isMobile ? 0.30 : -0.45;
             const offset = rect.top * speed;
 

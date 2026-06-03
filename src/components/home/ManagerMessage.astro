@@ -1,0 +1,217 @@
+---
+import Icon from "astro-icon";
+---
+
+<section id= "clients" class="manager-message">
+  <div class="overlay"></div>
+
+  <div class="container">
+    <div class="avatar">
+      <Icon
+        pack="mdi"
+        name="account-tie"
+        size={58}
+      />
+    </div>
+
+    <h3>Juan Carlos Cerna</h3>
+
+    <span class="position">
+      Gerente General y Jefe Administrativo
+    </span>
+
+    <div class="stars">
+      ★★★★★
+    </div>
+
+    <p>
+      Fue un verdadero placer trabajar con ustedes. Nos alegra enormemente saber que quedaron satisfechos con la organización y el profesionalismo de nuestro equipo. Es un orgullo contar con clientes como ustedes y esperamos seguir colaborando en el futuro
+    </p>
+
+  </div>
+</section>
+
+<style lang="scss">
+.manager-message {
+  position: relative;
+  overflow: hidden;
+
+  padding: 7rem 7%;
+
+  background-image: url("/images/clientes-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.72) 50%,
+      rgba(0, 0, 0, 0.88) 100%
+    );
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1000px;
+    margin: 0 auto;
+
+    text-align: center;
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+
+      margin: 0 auto 1.8rem;
+
+      border-radius: 50%;
+
+      background: linear-gradient(
+        135deg,
+        #2563eb,
+        #38bdf8
+      );
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+
+      border: 4px solid rgba(255, 255, 255, 0.15);
+
+      box-shadow:
+        0 20px 45px rgba(37, 99, 235, 0.35);
+
+      svg {
+        width: 58px;
+        height: 58px;
+      }
+    }
+
+    h3 {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .position {
+      display: block;
+
+      color: rgba(255, 255, 255, 0.75);
+
+      font-size: 1.1rem;
+
+      margin-bottom: 1rem;
+    }
+
+    .stars {
+      color: #fbbf24;
+
+      font-size: 1.35rem;
+
+      letter-spacing: 4px;
+
+      margin-bottom: 2rem;
+    }
+
+    p {
+      max-width: 900px;
+
+      margin: 0 auto;
+
+      color: rgba(255, 255, 255, 0.95);
+
+      font-size: 1.35rem;
+      font-style: italic;
+
+      line-height: 1.9;
+    }
+
+    .quote {
+      position: absolute;
+
+      color: #fbbf24;
+
+      font-size: 5rem;
+      font-weight: 700;
+
+      line-height: 1;
+
+      opacity: 0.9;
+
+      &.quote-left {
+        left: -20px;
+        top: 55%;
+      }
+
+      &.quote-right {
+        right: -20px;
+        bottom: -15px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    background-attachment: scroll;
+
+    padding: 5rem 5%;
+
+    .container {
+      .avatar {
+        width: 95px;
+        height: 95px;
+
+        svg {
+          width: 42px;
+          height: 42px;
+        }
+      }
+
+      h3 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .quote {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 4rem 1.5rem;
+
+    .container {
+      .avatar {
+        width: 80px;
+        height: 80px;
+
+        svg {
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      h3 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+</style>

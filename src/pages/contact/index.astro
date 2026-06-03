@@ -1,119 +1,362 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContactForm from "../../components/contact/ContactForm.jsx";
+import Icon from "astro-icon";
 ---
 
 <BaseLayout>
-<section class="contact-section">
 
-  <!-- FILA 1 – FORMULARIO -->
-  <div class="row form-row">
-    <div class="contact-form">
-      <ContactForm client:load />
+<section id="contact-page">
+
+  <h1 class="section-title">
+    CONTACTO
+  </h1>
+
+  <p class="section-description">
+    Estamos comprometidos en brindar soluciones eficientes y atención personalizada para cada proyecto.
+  </p>
+
+  <div class="contact-grid">
+
+    <div class="contact-info">
+
+      <div class="features">
+
+        <div class="feature-card">
+          <div class="icon">
+            <Icon
+              pack="mdi"
+              name="lightning-bolt"
+              size={28}
+            />
+          </div>
+
+          <div class="content">
+            <h3>Respuesta Rápida</h3>
+
+            <p>
+              Atendemos cada consulta en el menor tiempo posible para brindar
+              una atención eficiente.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">
+            <Icon
+              pack="mdi"
+              name="shield-check"
+              size={28}
+            />
+          </div>
+
+          <div class="content">
+            <h3>Confianza y Calidad</h3>
+
+            <p>
+              Comprometidos con soluciones seguras, responsables y profesionales.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">
+            <Icon
+              pack="mdi"
+              name="account-group"
+              size={28}
+            />
+          </div>
+
+          <div class="content">
+            <h3>Equipo Especializado</h3>
+
+            <p>
+              Personal capacitado para cada proyecto y necesidad específica.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="map-card">
+
+        <h2 class="map-title">
+          NUESTRA UBICACIÓN
+        </h2>
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d344.7040518839279!2d-77.01860693868153!3d-12.188488585905684!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1ses!2spe!4v1780461477706!5m2!1ses!2spe"
+          loading="lazy"
+          allowfullscreen=""
+        >
+        </iframe>
+
+      </div>
+
     </div>
-  </div>
 
-  <!-- TÍTULO GENERAL -->
-  <h1 class="main-title">UBICACIÓN</h1>
-
-  <!-- FILA 2 – DOS UBICACIONES -->
-  <div class="row ubications-row">
-
-    <!-- UBICACIÓN 1 -->
-    <div class="ubication-box">
-      <h2>Oficina Central - Chorrillos</h2>
-      <p class="label">Dirección:</p>
-      <p class="address">Mz s lote 4, Luis Felipe de las Casas, Chorrillos, Lima – Perú</p>
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.7348167900417!2d-77.0195221784364!3d-12.196926233005858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b75d7d880c25%3A0xc2b923cf4e303692!2sS11%2C%20Chorrillos%2015067!5e0!3m2!1ses!2spe!4v1764468886405!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
-
-    <!-- UBICACIÓN 2 -->
-    <div class="ubication-box">
-      <h2>Sucursal - Chilca</h2>
-      <p class="label">Dirección:</p>
-      <p class="address">
-        Av Miramar, Chilca, Peru
-      </p>
-
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7790.071724075499!2d-76.737907!3d-12.513782000000003!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910575d69ff3593d%3A0x233c80f05128d7a5!2sAv%20Miramar%2C%20Chilca%2015871%2C%20Peru!5e0!3m2!1sen!2sus!4v1764468593689!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="contact-form-wrapper">
+      <ContactForm client:load />
     </div>
 
   </div>
 
 </section>
+
 </BaseLayout>
 
 <style lang="scss">
-.contact-section {
-  width: 100%;
-  padding: 2em;
+#contact-page {
+  padding: 1.5rem 7%;
+  background: #f8fafc;
 
-  .main-title {
+  .section-title {
     text-align: center;
-    font-size: 2.2rem;
-    color: #0174B7;
-  }
 
-  .row {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    width: 100%;
-  }
+    font-size: 2em;
 
-  .form-row {
-    background-color: #0174B7;
+    font-weight: 800;
 
-    .contact-form {
-      margin: 2em;
-      width: 100%;
-      max-width: 700px;
+    color: #0174b7;
+
+
+    &::after {
+      content: "";
+
+      display: block;
+
+      width: 90px;
+      height: 4px;
+
+      margin: 1rem auto 0;
+
+      border-radius: 999px;
+
+      background: #0174b7;
     }
   }
 
-  .ubications-row {
+  .section-description {
+    max-width: 800px;
+
+    margin: 0 auto 4rem;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+  }
+
+  .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2em;
 
-    @media (max-width: 850px) {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    gap: 3rem;
+
+    align-items: start;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2rem;
+
+    .features {
+      display: flex;
+      flex-direction: column;
+
+      gap: 1.2rem;
+
+      .feature-card {
+        display: flex;
+        align-items: center;
+
+        gap: 1rem;
+
+        padding: 1.5rem;
+
+        background: #fff;
+
+        border-radius: 18px;
+
+        box-shadow:
+          0 10px 25px rgba(0, 0, 0, 0.05);
+
+        transition: all .3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+
+          box-shadow:
+            0 15px 35px rgba(1, 116, 183, 0.15);
+        }
+
+        .icon {
+          min-width: 60px;
+
+          width: 60px;
+          height: 60px;
+
+          border-radius: 50%;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          color: white;
+
+          background: linear-gradient(
+            135deg,
+            #0174b7,
+            #38bdf8
+          );
+        }
+
+        .content {
+          h3 {
+            color: #0f172a;
+
+            margin-bottom: .3rem;
+
+            font-size: 1.15rem;
+          }
+
+          p {
+            color: #64748b;
+
+            line-height: 1.6;
+          }
+        }
+      }
+    }
+
+    .map-card {
+      background: white;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.05);
+
+      .map-title {
+        text-align: center;
+
+        color: #0174b7;
+
+        font-size: 1.4rem;
+
+        font-weight: 700;
+
+        padding: 1.4rem;
+
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      iframe {
+        width: 100%;
+        height: 380px;
+
+        border: 0;
+      }
     }
   }
 
-  .ubication-box {
-    background: #0174B7;
-    padding: 1.5em;
-    border-radius: 12px;
-    text-align: center;
-    color: #fff;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  .contact-form-wrapper {
+    position: sticky;
+    top: 120px;
 
-    h2 {
-      margin-bottom: 0.5em;
-      font-size: 1.6rem;
-      color: #ffffff;
+    background: white;
+
+    padding: 2rem;
+
+    border-radius: 24px;
+
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-wrapper {
+    order: 1;
+
+    position: static;
+    top: auto;
+  }
+
+  .contact-info {
+    order: 2;
+  }
+}
+
+  @media (max-width: 768px) {
+    padding: 4rem 5%;
+
+    .section-title {
+      font-size: 2.5rem;
     }
 
-    .label {
-      margin: 0;
-      font-weight: bold;
-      color: #fff;
-      font-size: 1rem;
-      margin-top: 0.5em;
+    .section-description {
+      margin-bottom: 3rem;
     }
 
-    .address {
-      margin: 0.2em 0 1em 0;
-      color: #fff;
-      font-size: 1rem;
+    .contact-info {
+      .map-card {
+        iframe {
+          height: 300px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 3rem 1rem;
+
+    .section-title {
+      font-size: 2rem;
     }
 
-    iframe {
-      width: 100%;
-      height: 260px;
-      border: 0;
-      border-radius: 10px;
+    .section-description {
+      font-size: .95rem;
+    }
+
+    .contact-info {
+      .features {
+        .feature-card {
+          flex-direction: column;
+
+          text-align: center;
+
+          .icon {
+            margin: 0 auto;
+          }
+        }
+      }
+
+      .map-card {
+        .map-title {
+          font-size: 1.2rem;
+        }
+
+        iframe {
+          height: 250px;
+        }
+      }
+    }
+
+    .contact-form-wrapper {
+      padding: 1.2rem;
     }
   }
 }
