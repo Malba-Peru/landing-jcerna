@@ -67,7 +67,7 @@ const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} style={styles.form}>
       <div style={styles.inputGroup}>
-        <h1> Envianos un mensaje</h1>
+        <h1> Cotiza tu siguiente proyecto</h1>
         <label htmlFor="name">Nombres Completos:</label>
         <input
           type="text"

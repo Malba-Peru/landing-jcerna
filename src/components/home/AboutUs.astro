@@ -11,7 +11,7 @@ import Icon from "astro-icon";
             <!-- Nosotros -->
             <div class="card">
                 <div class="front">
-                    <Icon name="mdi:account-group" class="icon-about" />
+                    <Icon name="mdi:domain" class="icon-about" />
                     <h3 class="front-title">Nosotros</h3>
                 </div>
 
@@ -27,7 +27,7 @@ import Icon from "astro-icon";
             <!-- Misión -->
             <div class="card">
                 <div class="front">
-                    <Icon name="mdi:target" class="icon-about" />
+                    <Icon name="mdi:flag-checkered" class="icon-about" />
                     <h3 class="front-title">Misión</h3>
                 </div>
 
@@ -50,7 +50,7 @@ import Icon from "astro-icon";
             <!-- Visión -->
             <div class="card">
     <div class="front">
-        <Icon name="mdi:eye-outline" class="icon-about" />
+        <Icon name="mdi:rocket-launch-outline" class="icon-about" />
         <h3 class="front-title">Visión</h3>
     </div>
 
@@ -67,122 +67,123 @@ Convertirnos en un referente nacional en construcción, donde cada obra represen
 </section>
 
 <style>
-    #about-us {
-        text-align: center;
-        padding: 40px 0;
-        background-color: #f4f7fb;
+section {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #f4f7fb;
 
-        h2 {
-            font-size: 2.5em;
-            color: #0174B7;
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
+    h2 {
+        font-size: 2.5em;
+        text-transform: uppercase;
+        color: #0174B7;
+        margin-bottom: 30px;
+        font-weight: 600;
+    }
 
-        .section-about-us {
+    .section-about-us {
+        display: flex;
+        justify-content: center;
+        gap: 2em;
+        flex-wrap: wrap;
+
+        .content {
             display: flex;
-            justify-content: center;
             gap: 2em;
             flex-wrap: wrap;
+            justify-content: center;
 
-            .content {
-                display: flex;
-                gap: 2em;
-                flex-wrap: wrap;
-                justify-content: center;
+            .card {
+                width: 300px;
+                height: 430px;
+                perspective: 1000px;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+                transition: transform 0.5s ease, box-shadow 0.3s ease;
+                cursor: pointer;
+                position: relative;
 
-                .card {
-                    width: 300px;
-                    height: 430px;
-                    perspective: 1000px;
-                    border-radius: 15px;
-                    overflow: hidden;
-                    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.5s ease, box-shadow 0.3s ease;
-                    cursor: pointer;
-                    position: relative;
-
-                    .front,
-                    .back {
-                        width: 100%;
-                        height: 100%;
-                        position: absolute;
-                        backface-visibility: hidden;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        text-align: center;
-                        transition: transform 0.6s;
-                        padding: 20px;
-                    }
-
-                    .front {
-                        background-color: #ffffff;
-                        color: #0174B7;
-                        gap: 0.7em;
-                    }
-
-                    .back {
-                        background-color: #0174B7;
-                        color: white;
-                        transform: rotateY(180deg);
-                        justify-content: flex-start;
-
-                        h1 {
-                            font-size: 1.5em;
-                            margin-bottom: 0.5em;
-                        }
-
-                        p {
-                            text-align: justify;
-                            font-size: 1em;
-                            line-height: 1.5;
-                        }
-                    }
-
-                    .icon-about {
-                        width: 110px;
-                        height: 110px;
-                        color: #0174B7;
-                    }
-
-                    .front-title {
-                        font-size: 1.4em;
-                        font-weight: 600;
-                        color: #0174B7;
-                    }
+                .front,
+                .back {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    backface-visibility: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    transition: transform 0.6s;
+                    padding: 20px;
                 }
 
-                /* Hover Flip */
-                .card:hover {
-                    transform: scale(1.05);
-                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+                .front {
+                    background-color: #ffffff;
+                    color: #0174B7;
+                    gap: 0.7em;
                 }
 
-                .card:hover .front {
+                .back {
+                    background-color: #0174B7;
+                    color: white;
                     transform: rotateY(180deg);
+                    justify-content: flex-start;
+
+                    h1 {
+                        font-size: 1.5em;
+                        margin-bottom: 0.5em;
+                    }
+
+                    p {
+                        text-align: justify;
+                        font-size: 1em;
+                        line-height: 1.5;
+                    }
                 }
 
-                .card:hover .back {
-                    transform: rotateY(0deg);
+                .icon-about {
+                    width: 110px;
+                    height: 110px;
+                    color: #0174B7;
                 }
+
+                .front-title {
+                    font-size: 1.4em;
+                    font-weight: 600;
+                    color: #0174B7;
+                }
+            }
+
+            .card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            }
+
+            .card:hover .front {
+                transform: rotateY(180deg);
+            }
+
+            .card:hover .back {
+                transform: rotateY(0deg);
             }
         }
     }
+}
 
-    @media (max-width: 800px) {
-        .card {
-            height: 350px;
-        }
-        
-        .icon-about {
-            width: 85px;
-            height: 85px;
-        }
-
-        .front-title {
-            font-size: 1.2em;
+@media (max-width: 800px) {
+    section {
+        h2 {
+            font-size: 2rem;
         }
     }
+}
+
+@media (max-width: 480px) {
+    section {
+        h2 {
+            font-size: 1.8rem;
+        }
+    }
+}
 </style>

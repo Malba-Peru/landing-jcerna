@@ -2,11 +2,11 @@
 import { clients } from "../../data-list";
 ---
 
-<section class="clients">
+<section id= "clients" class="clients">
   <div class="container">
 
     <h2 class="section-title">
-      CLIENTES
+      EMPRESAS QUE CONFIAN EN NOSOTROS
     </h2>
 
     <div class="grid">
@@ -24,7 +24,7 @@ import { clients } from "../../data-list";
 
 <style lang="scss">
 .clients {
-  padding: 5rem 7%;
+  padding: 3rem 7%;
   background: #f8fafc;
 
   .container {
@@ -34,16 +34,11 @@ import { clients } from "../../data-list";
 
   .section-title {
     text-align: center;
-
     color: #0174B7;
-
-    font-size: 2em;
-
+    font-size: 2.5em;
     font-weight: 600;
-
+    text-transform: uppercase;
     margin-bottom: 1rem;
-
-
   }
 
   .grid {
@@ -102,6 +97,10 @@ import { clients } from "../../data-list";
   @media (max-width: 992px) {
     padding: 4rem 5%;
 
+    .section-title {
+      font-size: 2rem;
+    }
+
     .grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -115,6 +114,7 @@ import { clients } from "../../data-list";
     padding: 3.5rem 4%;
 
     .section-title {
+      font-size: 1.8rem;
       margin-bottom: 1.5rem;
     }
 

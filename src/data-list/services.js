@@ -11,7 +11,7 @@ export const services = {
 
   finishes: {
     paragraph:
-      "Nuestros staff profesional emplea siempre las últimas tendencias del siglo XXI, marcando una ruptura con la tradicional logrando una transformación de espacios, formas compositivas y destéticas, sin dejar de lado la calidad que nos caracteriza.",
+      "Nuestros profesionales emplean siempre las últimas tendencias del siglo XXI, marcando una ruptura con la tradicional logrando una transformación de espacios, formas compositivas y estéticas, sin dejar de lado la calidad que nos caracteriza.",
     list: [
       "Acabados de pisos y muros.",
       "Cambios en Dry Wall, vinilshade, diseños exclusivos.",
@@ -21,7 +21,7 @@ export const services = {
 
   advice: {
     paragraph:
-      "Damos soluciones a sus obras, con el objetivo de realizar ajustes en acabados finales y labores complementarias en general, ejecutando el listado de pendientes y las observaciones de interventoría u obra atrasada; Lo que nos convierte en un excelente aliado para su empresa.",
+      "Damos soluciones a sus obras, con el objetivo de realizar ajustes en acabados finales y labores complementarias en general, ejecutando el listado de pendientes y las observaciones de interventoría u obra atrasada; Lo que nos convierte en un excelente aliado para tu empresa.",
     list: [
       "Diseño estructural en concreto, acero.",
       "Diseño de instalaciones eléctricas.",

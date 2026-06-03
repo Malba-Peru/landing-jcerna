@@ -32,11 +32,10 @@ import Icon from "astro-icon";
           </div>
 
           <div class="content">
-            <h3>Respuesta Rápida</h3>
+            <h3>RIGOR TÉCNICO</h3>
 
             <p>
-              Atendemos cada consulta en el menor tiempo posible para brindar
-              una atención eficiente.
+              Garantizamos control, precisión y máximo detalle desde la selección de materiales hasta acabados.
             </p>
           </div>
         </div>
@@ -51,10 +50,10 @@ import Icon from "astro-icon";
           </div>
 
           <div class="content">
-            <h3>Confianza y Calidad</h3>
+            <h3>SOLUCIONES INTEGRALES</h3>
 
             <p>
-              Comprometidos con soluciones seguras, responsables y profesionales.
+              Creamos soluciones multidisciplinares de diseño y construcción con propuestas innovadoras.
             </p>
           </div>
         </div>
@@ -69,28 +68,13 @@ import Icon from "astro-icon";
           </div>
 
           <div class="content">
-            <h3>Equipo Especializado</h3>
+            <h3>TRANSPARENCIA FINANCIERA</h3>
 
             <p>
-              Personal capacitado para cada proyecto y necesidad específica.
+              Ofrecemos presupuestos transparentes y excelente calidad estructural para proteger su capital.
             </p>
           </div>
         </div>
-
-      </div>
-
-      <div class="map-card">
-
-        <h2 class="map-title">
-          NUESTRA UBICACIÓN
-        </h2>
-
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d344.7040518839279!2d-77.01860693868153!3d-12.188488585905684!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1ses!2spe!4v1780461477706!5m2!1ses!2spe"
-          loading="lazy"
-          allowfullscreen=""
-        >
-        </iframe>
 
       </div>
 
@@ -108,107 +92,70 @@ import Icon from "astro-icon";
 
 <style lang="scss">
 #contact-page {
-  padding: 1.5rem 7%;
+  padding: 0.5rem 7% 4rem;
   background: #f8fafc;
 
   .section-title {
     text-align: center;
-
-    font-size: 2em;
-
-    font-weight: 800;
-
+    font-size: 2.5em;
+    font-weight: 600;
+    text-transform: uppercase;
     color: #0174b7;
-
-
-    &::after {
-      content: "";
-
-      display: block;
-
-      width: 90px;
-      height: 4px;
-
-      margin: 1rem auto 0;
-
-      border-radius: 999px;
-
-      background: #0174b7;
-    }
   }
 
   .section-description {
     max-width: 800px;
-
     margin: 0 auto 4rem;
-
     text-align: center;
-
     color: #64748b;
-
     font-size: 1.05rem;
-
     line-height: 1.8;
   }
 
   .contact-grid {
     display: grid;
-
-    grid-template-columns: 1.1fr 0.9fr;
-
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
-
-    align-items: start;
+    align-items: stretch;
   }
 
   .contact-info {
     display: flex;
     flex-direction: column;
-
-    gap: 2rem;
+    justify-content: center;
+    height: 100%;
 
     .features {
       display: flex;
       flex-direction: column;
-
-      gap: 1.2rem;
+      justify-content: center;
+      gap: 1.5rem;
+      height: 100%;
 
       .feature-card {
         display: flex;
         align-items: center;
-
         gap: 1rem;
-
-        padding: 1.5rem;
-
+        min-height: 140px;
+        padding: 2rem;
         background: #fff;
-
         border-radius: 18px;
-
-        box-shadow:
-          0 10px 25px rgba(0, 0, 0, 0.05);
-
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
         transition: all .3s ease;
 
         &:hover {
           transform: translateY(-5px);
-
-          box-shadow:
-            0 15px 35px rgba(1, 116, 183, 0.15);
+          box-shadow: 0 15px 35px rgba(1, 116, 183, 0.15);
         }
 
         .icon {
-          min-width: 60px;
-
-          width: 60px;
-          height: 60px;
-
+          min-width: 70px;
+          width: 70px;
+          height: 70px;
           border-radius: 50%;
-
           display: flex;
           align-items: center;
           justify-content: center;
-
           color: white;
 
           background: linear-gradient(
@@ -221,50 +168,15 @@ import Icon from "astro-icon";
         .content {
           h3 {
             color: #0f172a;
-
             margin-bottom: .3rem;
-
             font-size: 1.15rem;
           }
 
           p {
             color: #64748b;
-
             line-height: 1.6;
           }
         }
-      }
-    }
-
-    .map-card {
-      background: white;
-
-      border-radius: 20px;
-
-      overflow: hidden;
-
-      box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.05);
-
-      .map-title {
-        text-align: center;
-
-        color: #0174b7;
-
-        font-size: 1.4rem;
-
-        font-weight: 700;
-
-        padding: 1.4rem;
-
-        border-bottom: 1px solid #e5e7eb;
-      }
-
-      iframe {
-        width: 100%;
-        height: 380px;
-
-        border: 0;
       }
     }
   }
@@ -272,51 +184,39 @@ import Icon from "astro-icon";
   .contact-form-wrapper {
     position: sticky;
     top: 120px;
-
     background: white;
-
     padding: 2rem;
-
     border-radius: 24px;
 
     box-shadow:
       0 20px 40px rgba(0, 0, 0, 0.08);
   }
 
-@media (max-width: 992px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
+  @media (max-width: 992px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
 
-  .contact-form-wrapper {
-    order: 1;
+    .contact-form-wrapper {
+      order: 1;
+      position: static;
+      top: auto;
+    }
 
-    position: static;
-    top: auto;
+    .contact-info {
+      order: 2;
+    }
   }
-
-  .contact-info {
-    order: 2;
-  }
-}
 
   @media (max-width: 768px) {
     padding: 4rem 5%;
 
     .section-title {
-      font-size: 2.5rem;
+      font-size: 2em;
     }
 
     .section-description {
       margin-bottom: 3rem;
-    }
-
-    .contact-info {
-      .map-card {
-        iframe {
-          height: 300px;
-        }
-      }
     }
   }
 
@@ -324,7 +224,7 @@ import Icon from "astro-icon";
     padding: 3rem 1rem;
 
     .section-title {
-      font-size: 2rem;
+      font-size: 1.8em;
     }
 
     .section-description {
@@ -335,22 +235,11 @@ import Icon from "astro-icon";
       .features {
         .feature-card {
           flex-direction: column;
-
           text-align: center;
 
           .icon {
             margin: 0 auto;
           }
-        }
-      }
-
-      .map-card {
-        .map-title {
-          font-size: 1.2rem;
-        }
-
-        iframe {
-          height: 250px;
         }
       }
     }

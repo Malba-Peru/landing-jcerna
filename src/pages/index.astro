@@ -34,11 +34,12 @@ const slides: Img[] = [
 
 <BaseLayout>
   <Animations client:idle />
-
   <main class="reveal">
     <Carrousel slides={slides} />
   </main>
-
+  <div class="reveal">
+    <WorkProcess />
+  </div>
   <div class="reveal">
     <Services />
   </div>
@@ -51,14 +52,11 @@ const slides: Img[] = [
     <Path />
   </div>
 
-  <div class="reveal">
-    <WorkProcess />
-  </div>
 
- <div class="reveal">
-    <ManagerMessage />
-
-  </div>
+{/* <div class="reveal">
+  <ManagerMessage />
+</div> 
+*/}
 
   <div class="reveal">
       <ClientLogo />
