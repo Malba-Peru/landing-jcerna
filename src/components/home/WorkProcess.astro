@@ -43,7 +43,7 @@ import Icon from "astro-icon";
 
     text-transform: uppercase;
 
-    font-weight: 600;
+    font-weight: 800;
   }
 
   .grid {
@@ -60,7 +60,6 @@ import Icon from "astro-icon";
 
       border-radius: 14px;
 
-      background-image: url("/images/trabajo_fondo.webp");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -70,6 +69,22 @@ import Icon from "astro-icon";
 
       transition: all 0.3s ease;
 
+      &:nth-child(1) {
+        background-image: url("/images/trabajo_fondo_1.webp");
+      }
+
+      &:nth-child(2) {
+        background-image: url("/images/trabajo_fondo_2.webp");
+      }
+
+      &:nth-child(3) {
+        background-image: url("/images/trabajo_fondo_3.webp");
+      }
+
+      &:nth-child(4) {
+        background-image: url("/images/trabajo_fondo_4.webp");
+      }
+
       &:hover {
         transform: translateY(-6px);
 
@@ -77,19 +92,19 @@ import Icon from "astro-icon";
           0 20px 35px rgba(0, 0, 0, 0.25);
       }
 
-.overlay {
-  position: absolute;
+      .overlay {
+        position: absolute;
 
-  inset: 0;
+        inset: 0;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.30) 0%,
-      rgba(0, 0, 0, 0.55) 55%,
-      rgba(0, 0, 0, 0.72) 100%
-    );
-}
+        background:
+          linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.30) 0%,
+            rgba(0, 0, 0, 0.55) 55%,
+            rgba(0, 0, 0, 0.72) 100%
+          );
+      }
 
       .content {
         position: relative;

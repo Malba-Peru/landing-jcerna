@@ -23,6 +23,13 @@ export const proyectsItems = [
     img: "/images/conditioning.webp",
     desc: "Acondicionamiento para oficinas",
   },
+
+    {
+    slug: "electrical",
+    title: "Proyectos Eléctricos",
+    img: "/images/electrical.webp",
+    desc: "Instalaciones y sistemas de potencia",
+  },
     {
     slug: "varied",
     title: "Proyectos Variados",

@@ -127,9 +127,9 @@ import Divider from "../ui/Divider.astro";
 </section>
 
 <style lang="scss">
- section{
+section {
     background: #0d77c1;
-    max-width: 1400px;
+    max-width: 100%;
     margin: 2rem auto;
     padding: 1.5rem;
 
@@ -138,45 +138,34 @@ import Divider from "../ui/Divider.astro";
         font-size: 2.5rem;
         text-align: center;
         text-transform: uppercase;
-        font-weight: 600;
+        font-weight: 800;
         margin-bottom: 2rem;
     }
 
     .services-container {
         display: grid;
-
         grid-template-columns: repeat(3, 1fr);
-
-        gap: 2rem;
+        gap: 6rem;
+        margin: 0 1.5rem;
 
         article {
             background: white;
-
             border-radius: 1rem;
-
             overflow: hidden;
-
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
-
             padding: 1rem;
-
             transition: all .3s ease;
 
             &:hover {
                 transform: translateY(-5px);
-
                 box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
             }
 
             .services-icon {
                 background: #0d77c1;
-
                 padding: .8rem;
-
                 border-radius: 50%;
             }
 
@@ -186,22 +175,15 @@ import Divider from "../ui/Divider.astro";
 
             div:last-child {
                 padding: 1rem;
-
                 display: flex;
-
                 flex-direction: column;
-
                 gap: .5rem;
-
                 text-align: justify;
 
                 h3 {
                     text-align: center;
-
                     color: #0d77c1;
-
                     font-size: 1.5rem;
-
                     margin-bottom: .5rem;
                 }
 
@@ -211,18 +193,13 @@ import Divider from "../ui/Divider.astro";
 
                 ul {
                     list-style: none;
-
                     display: flex;
-
                     flex-direction: column;
-
                     gap: .5rem;
 
                     li {
                         display: flex;
-
                         gap: .5rem;
-
                         align-items: flex-start;
                     }
                 }
@@ -230,12 +207,16 @@ import Divider from "../ui/Divider.astro";
         }
     }
 
+    /* TABLET GRANDE */
     @media (max-width: 992px) {
         .services-container {
             grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin: 0 1rem;
         }
     }
 
+    /* TABLET */
     @media (max-width: 768px) {
         padding: 1.2rem;
 
@@ -245,16 +226,27 @@ import Divider from "../ui/Divider.astro";
 
         .services-container {
             grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 0 .5rem;
         }
     }
 
-        @media (max-width: 480px) {
+    /* MÓVIL */
+    @media (max-width: 480px) {
+        padding: 1rem;
 
         h2 {
             font-size: 1.8rem;
         }
 
+        .services-container {
+            gap: 1.5rem;
+            margin: 0;
+        }
 
+        article {
+            padding: .8rem;
+        }
     }
 }
 </style>
