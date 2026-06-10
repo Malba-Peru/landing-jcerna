@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
-import netlify from "@astrojs/netlify/functions";
+import netlify from "@astrojs/netlify";
 import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
@@ -18,6 +18,6 @@ export default defineConfig({
     },
     compressHTML: true,
     prefetch: true,
-    output: "server",
+    output: "static",
     adapter: netlify(),
 });

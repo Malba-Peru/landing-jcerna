@@ -1,14 +1,24 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ProyectModal from "../../../components/ui/ProyectsModal";
-import { proyectsItems, proyImages } from "../../../data-list"; 
+import { proyectsItems, proyImages } from "../../../data-list";
+
+export function getStaticPaths() {
+  return proyectsItems.map((item) => ({
+    params: {
+      slug: item.slug,
+    },
+  }));
+}
 
 const { slug } = Astro.params;
 
-const currentItem = proyectsItems.find(item => item.slug === slug);
+const currentItem = proyectsItems.find(
+  (item) => item.slug === slug
+);
 
 if (!currentItem) {
-  throw new Error(`Proyectos Terminados no encontrada para: ${slug}`);
+  throw new Error(`Proyecto no encontrado para: ${slug}`);
 }
 ---
 <BaseLayout>
