@@ -42,7 +42,7 @@ const ContactForm = () => {
 
     if (!validateForm()) return; // Si hay errores, no envía el formulario
 
-    const serviceID = "service_ec8cxov";
+    const serviceID = "service_hh2ckli";
     const templateID = "template_xckv9vb";
     const userID = "3NncCShnGxHSd2PsH";
 
