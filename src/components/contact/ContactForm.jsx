@@ -42,7 +42,7 @@ const ContactForm = () => {
 
     if (!validateForm()) return; // Si hay errores, no envía el formulario
 
-    const serviceID = "service_7yoowpm";
+    const serviceID = "service_ec8cxov";
     const templateID = "template_xckv9vb";
     const userID = "3NncCShnGxHSd2PsH";
 
@@ -80,31 +80,62 @@ const ContactForm = () => {
         {errors.name && <p style={styles.error}>{errors.name}</p>}
       </div>
 
-      <div style={styles.inputGroup}>
-        <label htmlFor="phone">Número:</label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          style={styles.input}
-        />
-        {errors.phone && <p style={styles.error}>{errors.phone}</p>}
-      </div>
+<div style={styles.inputGroup}>
+  <label htmlFor="phone">Número:</label>
 
-      <div style={styles.inputGroup}>
-        <label htmlFor="email">Correo:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          style={styles.input}
-        />
-        {errors.email && <p style={styles.error}>{errors.email}</p>}
-      </div>
+  <input
+    type="tel"
+    id="phone"
+    name="phone"
+    autoComplete="tel"
+    inputMode="numeric"
+    maxLength={9}
+    value={formData.phone}
+    onChange={(e) => {
+      const value = e.target.value.replace(/\D/g, "").slice(0, 9);
+
+      setFormData({
+        ...formData,
+        phone: value,
+      });
+
+      setErrors({
+        ...errors,
+        phone: "",
+      });
+    }}
+    style={styles.input}
+  />
+
+  {errors.phone && <p style={styles.error}>{errors.phone}</p>}
+</div>
+
+<div style={styles.inputGroup}>
+  <label htmlFor="email">Correo:</label>
+
+  <input
+    type="email"
+    id="email"
+    name="email"
+    autoComplete="email"
+    maxLength={100}
+    value={formData.email}
+    onChange={(e) => {
+      setFormData({
+        ...formData,
+        email: e.target.value.trim(),
+      });
+
+      setErrors({
+        ...errors,
+        email: "",
+      });
+    }}
+    style={styles.input}
+  />
+
+  {errors.email && <p style={styles.error}>{errors.email}</p>}
+</div>
 
       <div style={styles.inputGroup}>
         <label htmlFor="message">Mensaje:</label>
